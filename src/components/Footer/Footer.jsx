@@ -48,29 +48,7 @@ function Footer() {
           </div>
           <div className="w-auto py-0 px-4 lg:p-8">
             <div className="-m-1.5 flex flex-wrap">
-              <div className="w-auto p-1.5">
-                <a href="https://www.linkedin.com/in/gaku4476/" target="_blank">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 hover:border-gray-400 dark:border-gray-500 dark:hover:border-gray-300">
-                    {/* LinkedIn SVG */}
-                    {/* No color modification needed unless you want to switch fill to white */}
-                  </div>
-                </a>
-              </div>
-
-              <div className="w-auto p-1.5">
-                <a href="https://github.com/GaKu4476" target="_blank">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 hover:border-gray-400 dark:border-gray-500 dark:hover:border-gray-300">
-                    {/* GitHub SVG */}
-                  </div>
-                </a>
-              </div>
-              <div className="w-auto p-1.5">
-                <a href="https://www.instagram.com/gaurav._.4476/" target="_blank">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 hover:border-gray-400 dark:border-gray-500 dark:hover:border-gray-300">
-                    {/* Instagram SVG */}
-                  </div>
-                </a>
-              </div>
+              
             </div>
           </div>
         </div>
