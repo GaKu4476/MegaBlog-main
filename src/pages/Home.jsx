@@ -57,7 +57,7 @@ const Home = () => {
           </div>
           <div className="text-center">
             <h1 className="md:text-4xl text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
-              Welcome to I ❤️ Metallurgy
+              Welcome to Metalog 🔥
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin metus orci, consectetur eget ornare ut, imperdiet vulputate felis. Fusce lobortis nisi leo, eget finibus nisl porta eget. Praesent maximus magna velit, id volutpat neque aliquam non. Aenean tempus ultrices volutpat. Mauris pulvinar viverra libero, non porttitor mauris maximus aliquet. Cras lacus ante, hendrerit vel urna vel, tincidunt iaculis tortor. Vestibulum nisi risus, condimentum nec lacinia ut, mollis a diam. Ut vitae purus vulputate, ornare erat eu, faucibus enim. Sed condimentum massa non aliquam cursus. Pellentesque fringilla felis sed enim auctor hendrerit. Duis consectetur, turpis eget malesuada interdum, quam ex consequat libero, ut maximus erat sem quis nisi. Etiam id felis sit amet massa condimentum interdum. Fusce lectus quam, vehicula at diam id, consequat hendrerit neque. Donec bibendum arcu sit amet turpis maximus, sed imperdiet odio auctor.

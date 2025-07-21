@@ -74,9 +74,8 @@ const Signup = () => {
                   required: true,
                   validate: {
                     matchPattern: (value) =>
-                      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
-                        value
-                      ) || "Email address must be a valid address",
+                      /^202[2-5]ugmm0\d{2}@nitjsr\.ac\.in$/.test(value) ||
+                      "Email must be a valid NITJSR Metallurgy ID (2022–2025)",
                   },
                 })}
               />
