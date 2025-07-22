@@ -7,22 +7,25 @@ import service from "../../appwrite/conf";
 
 const PostForm = ({ post }) => {
   const [loading, setLoading] = useState(false);
-  const { register, handleSubmit, watch, setValue, control, getValues } =
-    useForm({
-      defaultValues: {
-        title: post?.title || "",
-        slug: post?.slug || "",
-        content: post?.content || "",
-        status: post?.status || "active",
-      },
-    });
+  const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
+    defaultValues: {
+      title: post?.title || "",
+      slug: post?.slug || "",
+      content: post?.content || "",
+      status: post?.status || "active",
+    },
+  });
 
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
 
+  // ✅ GUARD to avoid rendering before userData is ready
+  if (!userData) return null;
+
   const submit = async (data) => {
     setLoading(true);
     document.body.style.cursor = "wait";
+
     if (post) {
       const file = data.image[0]
         ? await service.uploadFile(data.image[0])
@@ -31,10 +34,12 @@ const PostForm = ({ post }) => {
       if (file) {
         service.deleteFile(post.featuredImage);
       }
+
       const dbPost = await service.updatePost(post.$id, {
         ...data,
         featuredImage: file ? file.$id : undefined,
       });
+
       if (dbPost) {
         setLoading(false);
         document.body.style.cursor = "default";
@@ -43,16 +48,14 @@ const PostForm = ({ post }) => {
     } else {
       const file = await service.uploadFile(data.image[0]);
 
-      console.log("📦 Submitting post with userData:", userData);
-
       if (file) {
         const fileId = file.$id;
         data.featuredImage = fileId;
         const dbPost = await service.createPost({
           ...data,
-          userId: userData?.$id,
-
+          userId: userData.userData?.$id,
         });
+
         if (dbPost) {
           setLoading(false);
           document.body.style.cursor = "default";
@@ -81,12 +84,11 @@ const PostForm = ({ post }) => {
       }
     });
 
-    return () => {
-      subscription.unsubscribe();
-    };
+    return () => subscription.unsubscribe();
   }, [watch, slugTransform, setValue]);
 
   const [image, setImage] = useState("");
+
   useEffect(() => {
     if (post) {
       service.getFilePreview(post.featuredImage).then((image) => {
